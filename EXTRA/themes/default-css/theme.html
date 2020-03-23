@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<{$xoops_langcode}>" lang="<{$xoops_langcode}>">
+<head>
+  <!-- Assign Theme name -->
+  <{assign var=theme_name value=$xoTheme->folderName}>
+
+  <!-- Title and meta -->
+  <meta http-equiv="content-language" content="<{$xoops_langcode}>" />
+  <meta http-equiv="content-type" content="text/html; charset=<{$xoops_charset}>" />
+  <title><{if $xoops_pagetitle !=''}><{$xoops_pagetitle}> - <{/if}><{$xoops_sitename}></title>
+  <meta name="robots" content="<{$xoops_meta_robots}>" />
+  <meta name="keywords" content="<{if $xoops_dirname != system}><{$xoops_pagetitle}>, <{/if}><{$xoops_meta_keywords}>" />
+  <meta name="description" content="<{$xoops_meta_description}>" />
+  <meta name="rating" content="<{$xoops_meta_rating}>" />
+  <meta name="author" content="<{$xoops_meta_author}>" />
+  <meta name="copyright" content="<{$xoops_meta_copyright}>" />
+  <meta name="generator" content="XOOPS" />
+  <meta name="revisit-after" content="7 days" />
+  
+  <!-- Rss -->
+  <link rel="alternate" type="application/rss+xml" title="" href="<{xoAppUrl backend.php}>" />
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/ico" href="<{xoImgUrl icons/favicon.ico}>" />
+  <link rel="icon" type="image/png" href="<{xoImgUrl icons/favicon.png}>" />
+  
+  <!-- Sheet Css -->  
+  <link rel="stylesheet" type="text/css" media="all" title="Style sheet" href="<{xoAppUrl xoops.css}>" />
+  <link rel="stylesheet" type="text/css" media="all" title="Style sheet" href="<{xoImgUrl style.css}>" />
+  <{* Code for different layout structure [1/2 or 3columns]- Allows 3 Columns by default *}>
+	<{if $xoops_showrblock == '' & $xoops_showlblock  == ''}>
+  <style type="text/css">  @import url(<{xoImgUrl style-noCol.css}>);</style>
+	<{elseif $xoops_showrblock == 1 & $xoops_showlblock  == ''}>
+  <style type="text/css">  @import url(<{xoImgUrl style-noLcol.css}>);</style>
+	<{elseif $xoops_showrblock == '' & $xoops_showlblock  == 1}>
+  <style type="text/css">  @import url(<{xoImgUrl style-noRcol.css}>);</style>
+	<{/if}>
+  
+  <!-- customized header contents -->
+  <{$xoops_module_header}>
+
+  <!-- Dublin Core MetaData [DCMI] Tags -->
+  <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/" />
+  <link rel="schema.DCTERMS" href="http://purl.org/dc/terms/" />
+  <meta name="DC.title" lang="<{$xoops_langcode}>" content="<{$xoops_pagetitle}> - <{$xoops_sitename}>" />
+  <meta name="DC.creator" content="<{$xoops_sitename}>" />
+  <meta name="DC.subject" lang="<{$xoops_langcode}>" content="<{$xoops_meta_keywords}>, <{$xoops_pagetitle}>" />
+  <meta name="DC.description" lang="<{$xoops_langcode}>" content="<{$xoops_pagetitle}> - <{$xoops_meta_description}>" />
+  <meta name="DC.publisher" content="<{$xoops_meta_author}>" />
+  <meta name="DC.type" content="text" />
+  <meta name="DC.format" content="text/html; charset=<{$xoops_charset}>" />
+  <meta name="DC.identifier" scheme="DCTERMS.URI" content="<{$xoops_url}>" />
+  <meta name="DC.language" scheme="DCTERMS.RFC1766" content="<{$xoops_langcode}>" />
+  <meta name="DC.rights" content="<{$xoops_meta_copyright}>" />
+  
+</head>
+<body id="<{$xoops_dirname}>" class="<{$xoops_langcode}>">
+  <div id="header">
+      <div id="headerlogo">
+        <a href="<{xoAppUrl /}>" title="<{$xoops_sitename}>">
+          <img src="<{xoImgUrl xoops-logo.png}>" alt="<{$xoops_sitename}>" />
+        </a>
+      </div>
+      <div id="headerbanner"><{$xoops_banner}></div>
+  </div>
+  <div id="headerbar">&nbsp;</div>
+  <div id="colmask">
+  	<div id="colmid">
+  		<div id="colright">
+  			<div id="col1wrap">
+  				<div id="col1pad">
+  					<div id="col1">
+              <div id="centercolumn">
+  					  <!-- Display center blocks if any -->
+              <{if $xoBlocks.page_topleft or $xoBlocks.page_topcenter or $xoBlocks.page_topright}>
+                <div id="centerCcolumn">
+                  <!-- Start center-center blocks loop -->
+                  <{foreach item=block from=$xoBlocks.page_topcenter}>
+                      <{includeq file="$theme_name/theme_blockcenter_c.html"}>
+                  <{/foreach}>
+                  <!-- End center-center blocks loop -->
+                </div>
+                <div id="centerLcolumn">
+                  <!-- Start center-left blocks loop -->
+                  <{foreach item=block from=$xoBlocks.page_topleft}>
+                      <{includeq file="$theme_name/theme_blockcenter_l.html"}>
+                  <{/foreach}>
+                  <!-- End center-left blocks loop -->
+                </div>
+                <div id="centerRcolumn">
+                  <!-- Start center-right blocks loop -->
+                  <{foreach item=block from=$xoBlocks.page_topright}>
+                      <{includeq file="$theme_name/theme_blockcenter_r.html"}>
+                  <{/foreach}>
+                  <!-- End center-right blocks loop -->
+                </div>
+              <{/if}>
+              <!-- End center top blocks loop -->
+  
+              <!-- Start content module page -->
+              <{if $xoops_contents && ($xoops_contents != ' ') }>
+              <div id="content"><{$xoops_contents}></div>
+              <{/if}>
+              <!-- End content module -->
+              
+              <!-- Start center bottom blocks loop -->
+              <{if $xoBlocks.page_bottomleft or $xoBlocks.page_bottomright or $xoBlocks.page_bottomcenter}>
+              <div class="clear"> </div>
+                <{if $xoBlocks.page_bottomcenter}>
+                  <div id="bottomCcolumn">
+                    <{foreach from=$xoBlocks.page_bottomcenter item=block}>
+                        <{include file="$theme_name/theme_blockcenter_c.html"}>
+                    <{/foreach}>
+                  </div>
+                <{/if}>
+
+                <{if $xoBlocks.page_bottomleft or $xoBlocks.page_bottomright}>
+                  <div id="bottomLcolumn">
+                      <{foreach from=$xoBlocks.page_bottomleft item=block}>
+                          <{include file="$theme_name/theme_blockcenter_l.html"}>
+                      <{/foreach}>
+                  </div>
+
+                  <div id="bottomRcolumn">
+                  <{foreach from=$xoBlocks.page_bottomright item=block}>
+                      <{include file="$theme_name/theme_blockcenter_r.html"}>
+                  <{/foreach}>
+                  </div>
+                <{/if}>
+              <{/if}>
+              <!-- End center bottom blocks loop -->
+              </div>
+  					</div> <!-- End of col1 -->
+  				</div>  
+  			</div>
+  			<div id="col2">
+          <!-- Start left blocks loop -->
+          <{if $xoops_showlblock}>
+              <div id="leftcolumn">
+              <{foreach item=block from=$xoBlocks.canvas_left}>
+                  <{includeq file="$theme_name/theme_blockleft.html"}>
+              <{/foreach}>
+              </div>
+          <{/if}>
+          <!-- End left blocks loop -->
+  			</div>
+  			<div id="col3">
+          <!-- Start right blocks loop -->
+          <{if $xoops_showrblock}>
+              <div id="rightcolumn">
+              <{foreach item=block from=$xoBlocks.canvas_right}>
+                  <{includeq file="$theme_name/theme_blockright.html"}>
+              <{/foreach}>
+              </div>
+          <{/if}>
+          <!-- End right blocks loop -->  
+  			</div>
+  		</div>
+  	</div>
+  </div>
+  <!-- Start footer -->
+  <div id="footer">
+    <div id="footerbar">
+     <{$xoops_footer}>
+    </div>
+  </div>
+  <!-- End footer -->
+  <!--{xo-logger-output}-->
+</body>
+</html>

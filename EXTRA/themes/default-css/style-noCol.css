@@ -1,0 +1,17 @@
+#colmid {
+	left:0px;				           /* Left column width */
+	border-left: 0px solid #cccccc; /* Left column border */
+}
+
+#colright {
+	margin-left:0px;				 /*Right column width + Left column width */
+	border-left: 0px solid #cccccc; /* Right column border */
+}
+
+#col1pad {
+	margin:0 10px 0 10px; /* Left Col width + Right Col + 10px margin*/
+}
+
+#col2 {
+	left:0px;					/* Right column width -1px margin */
+}
