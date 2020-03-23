@@ -1,0 +1,6 @@
+---------------------------------------
+0.3 Alpha 1  2020-03-23
+---------------------------------------
+
+- Converted to XOOPS 2.5.10 Admin GUI (Mamba)
+- added namespaces (mamba)

@@ -22,10 +22,10 @@
  */
 
 
-return array(
-	'copyright'	=> '&copy; XOOPS Core Team, maintained by XOOPS Design Team led by Kris',
-	// Types of language constants
-	"languages" => array("main", "admin"),
-);
+return [
+    'copyright' => '&copy; XOOPS Core Team, maintained by XOOPS Design Team led by Kris',
+    // Types of language constants
+    'languages' => ['main', 'admin'],
+];
 
 ?>

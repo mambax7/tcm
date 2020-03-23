@@ -1,91 +1,96 @@
-@import url(xoops-style.css); 
+@import url(xoops-style.css);
+
 body {
-	margin:0;
-	padding:0;
-	width:100%;
-	background-color:<defaultbg>;
-	min-width:700px;		/* Minimum width of layout - remove line if not required - The min-width property does not work in old versions of Internet Explorer */
-	font-size:<defaultfs>pt;
-   font-family: <defaultff>;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: < defaultbg >;
+    min-width: 700px; /* Minimum width of layout - remove line if not required - The min-width property does not work in old versions of Internet Explorer */
+    font-size: < defaultfs > pt;
+    font-family: < defaultff >;
 }
 
 #colmask {
-	position:relative;	/* This fixes the IE7 overflow hidden bug and stops the layout jumping out of place */
-	clear:both;
-	float:left;
-	width:100%;							/* width of whole page */
-	overflow:hidden;					/* This chops off any overhanging divs */
-	background-color:<leftblocksitebg>;		/* Left column background colour */
+    position: relative; /* This fixes the IE7 overflow hidden bug and stops the layout jumping out of place */
+    clear: both;
+    float: left;
+    width: 100%; /* width of whole page */
+    overflow: hidden; /* This chops off any overhanging divs */
+    background-color: < leftblocksitebg >; /* Left column background colour */
 }
+
 #colmid {
-	float:left;
-	width:200%;
-	position:relative;
-	left:<leftblockwidth>px;				           /* Left column width */
-	background:<centerblocksitebg>;    			  /* Center column background colour */
-	border-left: 1px solid #cccccc; /* Left column border */
+    float: left;
+    width: 200%;
+    position: relative;
+    left: < leftblockwidth > px; /* Left column width */
+    background: < centerblocksitebg >; /* Center column background colour */
+    border-left: 1px solid #cccccc; /* Left column border */
 }
 
 #colright {
-	float:left;
-	width:100%;
-	position:relative;
-	left:50%;
-	margin-left:-340px;	/* Right column width + Left column width */
-	background-color:<rightblocksitebg>;    		/* Right column background color */
-	border-left: 1px solid #cccccc;  /* Right column border */
+    float: left;
+    width: 100%;
+    position: relative;
+    left: 50%;
+    margin-left: -340px; /* Right column width + Left column width */
+    background-color: < rightblocksitebg >; /* Right column background color */
+    border-left: 1px solid #cccccc; /* Right column border */
 }
 
 #col1wrap {
-	float:right;
-	width:50%;
-	position:relative;
-	right:100%;
+    float: right;
+    width: 50%;
+    position: relative;
+    right: 100%;
 }
+
 #col1pad {
-/* these margin values set the distance of the center content form side 	columns. In this case we choose a 10px margin for left and right.
-	NOTE: the last value (left margin) is the total of Left Col width + 		Right col width + the choosen margin value */
-	margin:0 10px 0 350px; 
-	overflow:hidden;
+    /* these margin values set the distance of the center content form side     columns. In this case we choose a 10px margin for left and right.
+        NOTE: the last value (left margin) is the total of Left Col width +         Right col width + the choosen margin value */
+    margin: 0 10px 0 350px;
+    overflow: hidden;
 }
 
 
 #col1 {
-	width:100%;
-	overflow:hidden;
-	padding:5px 0 5px 0;
+    width: 100%;
+    overflow: hidden;
+    padding: 5px 0 5px 0;
 }
-#col2{
-	float:left;
-	width:<leftblockwidth>px;				/* Left column width in #colmid */
-	position:relative;
-	margin-left:-50%;
-	left:168px;					/* Right column width -2px margin */
-	overflow:hidden;
+
+#col2 {
+    float: left;
+    width: < leftblockwidth > px; /* Left column width in #colmid */
+    position: relative;
+    margin-left: -50%;
+    left: 168px; /* Right column width -2px margin */
+    overflow: hidden;
 }
 
 #col3 {
-	float:left;
-	width:<rightblockwidth>px;				/* Right column width in #colright*/
-	position:relative;
-	left:0px;
-	overflow:hidden;
+    float: left;
+    width: < rightblockwidth > px; /* Right column width in #colright*/
+    position: relative;
+    left: 0px;
+    overflow: hidden;
 }
+
 #footer {
-	clear:both;
-	float:left;
-	width:100%;
-	padding:0;
-	margin:0;
-	text-align: center;
+    clear: both;
+    float: left;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    text-align: center;
 }
 
 /* Hack for floating content based on FabClearing by Fcaldera www.html.it*/
 #centercolumn .blockContent:after {
-    content:    ".";
-    display:    block;
-    height:     0px;
-    clear:      both;
+    content: ".";
+    display: block;
+    height: 0px;
+    clear: both;
     visibility: hidden;
 }
 
@@ -96,7 +101,7 @@ body {
 /**/
 
 #centercolumn .blockContent {
-    clear:      both; /* for Gecko */
-    height:     1%; /* for IE */
+    clear: both; /* for Gecko */
+    height: 1%; /* for IE */
 
-} 
+}
